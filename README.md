@@ -36,7 +36,7 @@ DB_PASSWORD=your_database_password
 ```bash
 python -m venv .venv
 source .venv/bin/activate  
-pip install python-dotenv requests
+pip install python-dotenv requests psycopg2-binary
 ```
 
 ### 4. Start PostgreSQL with Docker
@@ -67,26 +67,10 @@ weather-data-project/
 │   ├── api_request.py    # Fetch data from Weatherstack API
 │   └── insert_records.py # Insert data into PostgreSQL
 ├── postgres/
-│   └── data/            # PostgreSQL data volume (not committed)
+│   └── data/            # PostgreSQL data volume 
 ├── docker-compose.yaml   # Docker configuration
 ├── .env.example         # Template for environment variables
 └── README.md
 ```
 
-## Troubleshooting
 
-**"Cannot connect to database"**
-- Make sure Docker is running: `docker ps`
-- Start services: `docker-compose up -d`
-
-**"API key invalid"**
-- Check your `.env` file has the correct key
-- Verify the key is active in your Weatherstack account
-
-**"ModuleNotFoundError: No module named 'dotenv'"**
-- Run: `pip install python-dotenv`
-
-## Important Notes
-- **Never commit `.env` file** - it's in `.gitignore`
-- **Never push database data** - `postgres/data/` is in `.gitignore`
-- **Never hardcode API keys** - always use environment variables

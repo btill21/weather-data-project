@@ -42,6 +42,19 @@ env/
 
 # Database
 postgres/data/
+*.db
+*.sqlite
+
+# Airflow
+airflow/logs/
+airflow/*.log
+airflow/*.pid
+airflow/airflow.db
+airflow/airflow.cfg
+airflow/webserver_config.py
+airflow/unittests.cfg
+airflow/*.err
+airflow/*.out
 
 # OS
 .DS_Store
