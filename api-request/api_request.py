@@ -9,6 +9,8 @@ api_url = f"http://api.weatherstack.com/current?access_key={api_key}&query=Louis
     
 def fetch_data():
     print("Fetching data from Weatherstack API...")
+    if not api_key:
+        raise ValueError("WEATHERSTACK_API_KEY is not set; cannot fetch live data")
     try:
         response = requests.get(api_url)
         response.raise_for_status()

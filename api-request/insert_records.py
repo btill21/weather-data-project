@@ -1,5 +1,5 @@
 import psycopg2
-from api_request import mock_fetch_data
+from api_request import mock_fetch_data, fetch_data
 
 def connect_to_db():
     print("Connecting to the database...")
@@ -75,15 +75,18 @@ def insert_records(conn, data):
 
 
 def main():
+    conn = None
     try:
-        data = mock_fetch_data()
+        # data = mock_fetch_data()
+        data = fetch_data()
         conn = connect_to_db()
         create_table(conn)
         insert_records(conn, data)
     except Exception as e:
         print(f"An error occurred in main: {e}")
+        raise
     finally:
-        if 'conn' in locals():
+        if conn:
             conn.close()
             print("Database connection closed.")    
 
