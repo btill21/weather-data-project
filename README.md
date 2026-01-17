@@ -62,15 +62,4 @@ python api_request.py
 
 ## Project Structure
 ```
-weather-data-project/
-├── api-request/          # API request and data insertion scripts
-│   ├── api_request.py    # Fetch data from Weatherstack API
-│   └── insert_records.py # Insert data into PostgreSQL
-├── postgres/
-│   └── data/            # PostgreSQL data volume 
-├── docker-compose.yaml   # Docker configuration
-├── .env.example         # Template for environment variables
-└── README.md
-```
-
 
