@@ -128,8 +128,7 @@ docker compose logs -f db    # PostgreSQL
 docker compose logs -f dbt   # dbt
 ```
 
-###
-Future plans 
+### Future plans 
 - Setup dbt for data transformation along with Superset
 - Better logic, error handling, different orchestration patterns
 ## License
