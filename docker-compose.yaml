@@ -34,6 +34,21 @@ services:
     command: >
       bash -c "airflow db migrate && airflow standalone"
 
+
+  dbt:
+    container_name: dbt_container
+    image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+    volumes:
+      - ./dbt:/usr/app
+    working_dir: /usr/app/myweatherproject
+    environment:
+      DBT_PROFILES_DIR: /usr/app
+    depends_on:
+      - db
+    networks:
+      - my-network
+    command: debug
+
 networks:
   my-network:
     driver: bridge
